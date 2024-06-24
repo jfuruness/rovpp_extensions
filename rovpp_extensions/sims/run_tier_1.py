@@ -25,19 +25,21 @@ def run_tier_1():
     hardcoded_asn_cls_dict = frozendict({x.asn: ForcedROV for x in tier_1_ases})
 
     sim = Simulation(
-        scenario_configs=tuple([
-            ScenarioConfig(
-                ScenarioCls=SubprefixHijack,
-                AdoptPolicyCls=Cls,
-                hardcoded_asn_cls_dict=hardcoded_asn_cls_dict,
-                # Removed the input clique from this list
-                adoption_subcategory_attrs=(
-                    ASGroups.STUBS_OR_MH.value,
-                    ASGroups.ETC.value,
-                ),
-            )
-            for Cls in ROVPP_CLASSES
-        ]),
+        scenario_configs=tuple(
+            [
+                ScenarioConfig(
+                    ScenarioCls=SubprefixHijack,
+                    AdoptPolicyCls=Cls,
+                    hardcoded_asn_cls_dict=hardcoded_asn_cls_dict,
+                    # Removed the input clique from this list
+                    adoption_subcategory_attrs=(
+                        ASGroups.STUBS_OR_MH.value,
+                        ASGroups.ETC.value,
+                    ),
+                )
+                for Cls in ROVPP_CLASSES
+            ]
+        ),
         output_dir=DIR / "subprefix_hijack_tier1_all_adopt_rov",
         metric_keys=tuple(list(get_rovpp_metric_keys())),
         **default_kwargs,  # type: ignore

@@ -17,13 +17,15 @@ def run_fig9():
     """
 
     sim = Simulation(
-        scenario_configs=tuple([
-            ScenarioConfig(
-                ScenarioCls=NonRoutedPrefixHijack,
-                AdoptPolicyCls=Cls,
-            )
-            for Cls in ROVPP_CLASSES
-        ]),
+        scenario_configs=tuple(
+            [
+                ScenarioConfig(
+                    ScenarioCls=NonRoutedPrefixHijack,
+                    AdoptPolicyCls=Cls,
+                )
+                for Cls in ROVPP_CLASSES
+            ]
+        ),
         output_dir=DIR / "fig9",
         metric_keys=tuple(list(get_rovpp_metric_keys())),
         **default_kwargs,  # type: ignore
