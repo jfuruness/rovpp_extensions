@@ -9,6 +9,7 @@ from .sims import (
     run_fig10,
 )
 
+
 def main():
     sim_funcs = (
         run_50_percent,

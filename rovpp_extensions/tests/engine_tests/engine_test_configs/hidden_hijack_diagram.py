@@ -24,7 +24,7 @@ as_graph_info = ASGraphInfo(
 )
 
 
-desc = ("hidden hijack example against ROV")
+desc = "hidden hijack example against ROV"
 
 hidden_hijack_rov_config = EngineTestConfig(
     name="hidden_hijack_rov_config",

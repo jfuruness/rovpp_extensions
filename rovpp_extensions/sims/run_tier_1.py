@@ -34,8 +34,7 @@ def run_tier_1():
                 adoption_subcategory_attrs=(
                     ASGroups.STUBS_OR_MH.value,
                     ASGroups.ETC.value,
-                )
-
+                ),
             )
             for Cls in ROVPP_CLASSES
         ],

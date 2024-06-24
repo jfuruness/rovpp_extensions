@@ -17,15 +17,19 @@ from ..policies import (
 DIR = Path.home() / "Desktop" / "rovpp_reproduction"
 
 default_kwargs = {
-    "percent_adoptions": (.5,) if "quick" in sys.argv else (
-        SpecialPercentAdoptions.ONLY_ONE,
-        0.1,
-        0.2,
-        0.5,
-        0.8,
-        0.99,
+    "percent_adoptions": (
+        (0.5,)
+        if "quick" in sys.argv
+        else (
+            SpecialPercentAdoptions.ONLY_ONE,
+            0.1,
+            0.2,
+            0.5,
+            0.8,
+            0.99,
+        )
     ),
-    "num_trials": 1 if "quick" in str(sys.argv) else 1,#50,
+    "num_trials": 1 if "quick" in str(sys.argv) else 1,  # 50,
     "parse_cpus": cpu_count() - 2,
 }
 
@@ -35,7 +39,7 @@ ROVPP_CLASSES = (
     ROVPPV2iLiteRenamed,
     ROVPPV2LiteRenamed,
     ROVPPV1LiteRenamed,
-    ROV
+    ROV,
 )
 
 

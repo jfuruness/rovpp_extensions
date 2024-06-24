@@ -29,4 +29,3 @@ def run_fig9():
         **default_kwargs,  # type: ignore
     )
     sim.run()
-

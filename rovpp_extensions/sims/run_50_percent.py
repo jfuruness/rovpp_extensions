@@ -26,7 +26,7 @@ def run_50_percent():
     ases = list(bgp_dag)
     shuffle(ases)
     hardcoded_asn_cls_dict = frozendict(
-        {x.asn: ForcedROV for x in ases[:len(ases) // 2]}
+        {x.asn: ForcedROV for x in ases[: len(ases) // 2]}
     )
 
     sim = Simulation(
@@ -39,8 +39,7 @@ def run_50_percent():
                 adoption_subcategory_attrs=(
                     ASGroups.STUBS_OR_MH.value,
                     ASGroups.ETC.value,
-                )
-
+                ),
             )
             for Cls in ROVPP_CLASSES
         ],
