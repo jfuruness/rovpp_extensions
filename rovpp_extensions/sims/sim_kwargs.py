@@ -7,13 +7,17 @@ from bgpy.enums import ASGroups, Plane, Outcomes, SpecialPercentAdoptions
 from bgpy.simulation_engine import ROV
 from bgpy.simulation_framework.metric_tracker.metric_key import MetricKey
 
-from ..policies import ROVPPV1LiteRenamed, ROVPPV2LiteRenamed, ROVPPV2iLiteRenamed
-
+from ..policies import (
+    ROVPPV1LiteRenamed,
+    ROVPPV2LiteRenamed,
+    ROVPPV2iLiteRenamed,
+    ROVPPV2ShortenedLite,
+)
 
 DIR = Path.home() / "Desktop" / "rovpp_reproduction"
 
 default_kwargs = {
-    "percent_adoptions": (
+    "percent_adoptions": (.5,) if "quick" in sys.argv else (
         SpecialPercentAdoptions.ONLY_ONE,
         0.1,
         0.2,
@@ -26,7 +30,13 @@ default_kwargs = {
 }
 
 
-ROVPP_CLASSES = (ROVPPV2iLiteRenamed, ROVPPV2LiteRenamed, ROVPPV1LiteRenamed, ROV)
+ROVPP_CLASSES = (
+    ROVPPV2ShortenedLite,
+    ROVPPV2iLiteRenamed,
+    ROVPPV2LiteRenamed,
+    ROVPPV1LiteRenamed,
+    ROV
+)
 
 
 # NOTE: Normally you don't need custom metric keys
