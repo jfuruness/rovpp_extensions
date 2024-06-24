@@ -9,7 +9,7 @@ pip3 install -e .[test]
 # To run the simulations
 pypy3 -O -m rovpp_extensions
 
-# OR
+# Or to just run in bash you can use this, but that will keep asserts on which is slower
 rovpp_extensions
 
 # To get the diagrams of hidden hijacks
