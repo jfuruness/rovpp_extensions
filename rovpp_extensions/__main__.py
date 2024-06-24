@@ -1,6 +1,8 @@
 import time
 
 from .sims import (
+    run_tier_1,
+    run_50_percent,
     run_prefix_hijacks,
     run_fig678,
     run_fig9,
@@ -9,6 +11,8 @@ from .sims import (
 
 def main():
     sim_funcs = (
+        run_50_percent,
+        run_tier_1,
         run_prefix_hijacks,
         run_fig678,
         run_fig9,
