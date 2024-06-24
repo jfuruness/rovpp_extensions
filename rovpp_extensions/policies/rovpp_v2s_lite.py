@@ -24,4 +24,4 @@ class ROVPPV2ShortenedLite(ROVPPV2ImprovedLite):
                 # Shorten the AS path of all blackholes as much as possible
                 blackhole.copy({"as_path": (self.as_.asn,), "traceback_end": True})
             )
-        super()._add_blackholes_to_local_rib(new_blackholes)
+        super()._add_blackholes_to_local_rib(tuple(new_blackholes))

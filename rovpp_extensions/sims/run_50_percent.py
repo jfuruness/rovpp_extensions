@@ -30,7 +30,7 @@ def run_50_percent():
     )
 
     sim = Simulation(
-        scenario_configs=[
+        scenario_configs=tuple([
             ScenarioConfig(
                 ScenarioCls=SubprefixHijack,
                 AdoptPolicyCls=Cls,
@@ -42,7 +42,7 @@ def run_50_percent():
                 ),
             )
             for Cls in ROVPP_CLASSES
-        ],
+        ]),
         output_dir=DIR / "subprefix_hijack_50_percent_adopt_rov",
         metric_keys=tuple(list(get_rovpp_metric_keys())),
         **default_kwargs,  # type: ignore

@@ -8,7 +8,7 @@ from bgpy.enums import ASNs
 from bgpy.simulation_engine import BGP, ROV
 from bgpy.simulation_framework import (
     ScenarioConfig,
-    SubprefxHijack,
+    SubprefixHijack,
 )
 
 
@@ -30,7 +30,7 @@ hidden_hijack_rov_config = EngineTestConfig(
     name="hidden_hijack_rov_config",
     desc=desc,
     scenario_config=ScenarioConfig(
-        ScenarioCls=SubprefxHijack,
+        ScenarioCls=SubprefixHijack,
         BasePolicyCls=BGP,
         override_attacker_asns=frozenset({ASNs.ATTACKER.value}),
         override_victim_asns=frozenset({ASNs.VICTIM.value}),

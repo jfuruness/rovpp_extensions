@@ -11,13 +11,13 @@ def run_prefix_hijacks():
     """Runs prefix hijacks, where ROV++ performs the same as ROV"""
 
     sim = Simulation(
-        scenario_configs=[
+        scenario_configs=tuple([
             ScenarioConfig(
                 ScenarioCls=PrefixHijack,
                 AdoptPolicyCls=Cls,
             )
             for Cls in ROVPP_CLASSES
-        ],
+        ]),
         output_dir=DIR / "prefix_hijack",
         metric_keys=tuple(list(get_rovpp_metric_keys())),
         **default_kwargs,  # type: ignore
