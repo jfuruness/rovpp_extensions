@@ -1,6 +1,5 @@
 from typing import TYPE_CHECKING
 
-from bgpy.enums import Relationships
 from bgpy.simulation_engine import ROVPPV2ImprovedLite
 
 if TYPE_CHECKING:
