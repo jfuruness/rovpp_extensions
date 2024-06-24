@@ -1,1 +1,1 @@
-git+https://github.com/jfuruness/bgpy_pkg.git@real_v8_no_bgpisec
+bgpy_pkg @ git+https://github.com/jfuruness/bgpy_pkg.git@real_v8_no_bgpisec
