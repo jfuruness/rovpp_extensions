@@ -1,37 +1,22 @@
-from pathlib import Path
+import time
 
-from bgpy.simulation_engine import ROV
-from bgpy.enums import SpecialPercentAdoptions
-from bgpy.simulation_framework import (
-    Simulation,
-    SubprefixHijack,
-    ScenarioConfig,
+from .sims import (
+    run_fig678,
+    run_fig9,
+    run_fig10,
 )
 
-
 def main():
-    """Runs the defaults"""
-
-    # Simulation for the paper
-    sim = Simulation(
-        percent_adoptions=(
-            SpecialPercentAdoptions.ONLY_ONE,
-            0.1,
-            0.2,
-            0.5,
-            0.8,
-            0.99,
-            # Using only 1 AS not adopting causes extreme variance
-            # SpecialPercentAdoptions.ALL_BUT_ONE,
-        ),
-        scenario_configs=(
-            ScenarioConfig(ScenarioCls=SubprefixHijack, AdoptPolicyCls=ROV),
-        ),
-        output_dir=Path("~/Desktop/main_ex").expanduser(),
-        num_trials=1,
-        parse_cpus=1,
+    sim_funcs = (
+        run_fig678,
+        run_fig9,
+        run_fig10,
     )
-    sim.run()
+
+    for sim_func in sim_funcs:
+        start = time.perf_counter()
+        sim_func()  # type: ignore
+        print(f"{time.perf_counter() - start}s for {getattr(sim_func, '__name__', '')}")
 
 
 if __name__ == "__main__":
